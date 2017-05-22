@@ -7,14 +7,10 @@ package br.com.ifam.mvc.dao;
 
 import br.com.ifam.mvc.model.Cliente;
 import java.util.List;
-import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Wilson
- */
+
 @Repository("clienteDao")
 @Transactional
 public class ClienteDao extends AbstractDao<Integer, Cliente>{

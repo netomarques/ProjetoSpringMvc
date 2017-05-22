@@ -7,16 +7,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Cadastro de Cliente</title>
+        <title>Formulário de Cadastro de Categoria</title>
     </head>
     <body>
-        <form action="<c:url value='/cadastrarCliente'/>" method="post">
-            <label for="nome"><!fmt:message key="usuario.nome"/>Nome:</label>
-            <input type="text" name="nome" id="nome">
-            <label for="login"><!fmt:message key="usuario.login"/>Login:</label>
-            <input type="text" name="login" id="login">
-            <label for="senha"><!fmt:message key="usuario.senha"/>Senha</label>
-            <input type="password" name="senha" id="senha">
+        <form action="<c:url value='/cadastrarCategoria'/>" method="post">
+            <label for="descricao"><!fmt:message key="usuario.nome"/>Descricao:</label>
+            <input type="text" name="descricao">
             <!form:errors path="usuario.nome" cssStyle="color:red"/>
             <!form:errors path="usuario.login" cssStyle="color:red"/>
             <button type="submit">Cadastrar</button>

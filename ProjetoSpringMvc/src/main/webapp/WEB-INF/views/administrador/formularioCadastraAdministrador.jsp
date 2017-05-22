@@ -7,10 +7,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Cadastro de Cliente</title>
+        <title>Formulário de Cadastro de Administrador</title>
     </head>
     <body>
-        <form action="<c:url value='/cadastrarCliente'/>" method="post">
+        <form action="<c:url value='/cadastrarAdministrador'/>" method="post">
             <label for="nome"><!fmt:message key="usuario.nome"/>Nome:</label>
             <input type="text" name="nome" id="nome">
             <label for="login"><!fmt:message key="usuario.login"/>Login:</label>

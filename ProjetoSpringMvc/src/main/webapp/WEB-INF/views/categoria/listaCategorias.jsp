@@ -7,32 +7,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listagem de Clientes</title>
+        <title>Listagem de Categorias</title>
     </head>
     <body>
         <a href="<c:url value='/' />">Voltar</a> <br><br>
-        <a href="<c:url value='/formCadastraCliente'/>">Formulário de cadastro de cliente</a><br><br>
+        <a href="<c:url value='/formCadastraCategoria'/>">Formulário de Cadastro de Categoria</a><br><br>
         
         <table>
             <tr>
                 <th>Id</th>
-                <th>Nome</th>
-                <th>Login</th>
-                <th>Senha</th>
+                <th>Descricão</th>
                 <th>Acão</th>
             </tr>
             
-            <c:forEach var="cliente" items="${listaClientes}">
+            <c:forEach var="categoria" items="${listaCategorias}">
                 <tr>
-                    <td>${cliente.id}</td>
-                    <td>${cliente.nome}</td>
-                    <td>${cliente.login}</td>
-                    <td>${cliente.senha}</td>
+                    <td>${categoria.id}</td>
+                    <td>${categoria.descricao}</td>
                     <td>
-                        <a href="formAlteraCliente?id=${cliente.id}">Alterar</a>
+                        <a href="formAlteraCategoria?id=${categoria.id}">Alterar</a>
                     </td>
                     <td>
-                        <a href="removerCliente?id=${cliente.id}" onclick="return confirm('Deseja realmente excluir')">
+                        <a href="removerCategoria?id=${categoria.id}" onclick="return confirm('Deseja realmente excluir')">
                             Remover
                         </a>
                     </td>

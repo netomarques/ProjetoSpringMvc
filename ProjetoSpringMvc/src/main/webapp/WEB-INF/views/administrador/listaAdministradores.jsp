@@ -1,3 +1,8 @@
+<%-- 
+    Document   : listagem-tarefas
+    Created on : 01/05/2017, 14:36:22
+    Author     : Wilson
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -7,11 +12,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listagem de Clientes</title>
+        <title>Listagem de Administradores</title>
     </head>
     <body>
         <a href="<c:url value='/' />">Voltar</a> <br><br>
-        <a href="<c:url value='/formCadastraCliente'/>">Formulário de cadastro de cliente</a><br><br>
+        <a href="<c:url value='/formCadastraAdministrador'/>">Formulário de Cadastro de Administrador</a><br><br>
         
         <table>
             <tr>
@@ -22,17 +27,17 @@
                 <th>Acão</th>
             </tr>
             
-            <c:forEach var="cliente" items="${listaClientes}">
+            <c:forEach var="administrador" items="${listaAdministradores}">
                 <tr>
-                    <td>${cliente.id}</td>
-                    <td>${cliente.nome}</td>
-                    <td>${cliente.login}</td>
-                    <td>${cliente.senha}</td>
+                    <td>${administrador.id}</td>
+                    <td>${administrador.nome}</td>
+                    <td>${administrador.login}</td>
+                    <td>${administrador.senha}</td>
                     <td>
-                        <a href="formAlteraCliente?id=${cliente.id}">Alterar</a>
+                        <a href="formAlteraAdministrador?id=${administrador.id}">Alterar</a>
                     </td>
                     <td>
-                        <a href="removerCliente?id=${cliente.id}" onclick="return confirm('Deseja realmente excluir')">
+                        <a href="removerAdministrador?id=${administrador.id}" onclick="return confirm('Deseja realmente excluir')">
                             Remover
                         </a>
                     </td>

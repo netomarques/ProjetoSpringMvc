@@ -11,10 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author Wilson
- */
 
 @Entity
 @Table(name="administrador")

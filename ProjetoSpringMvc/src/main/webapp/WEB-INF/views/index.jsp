@@ -17,6 +17,8 @@
         <h1>Welcome</h1>
         <br>
         <a href="<c:url value='/formListaCliente'/>">Modulo Cliente</a><br>
+        <a href="<c:url value='/formListaAdministrador'/>">Modulo Administrador</a><br>
+        <a href="<c:url value='/formListaCategoria'/>">Modulo Categoria</a><br>
         <!--a href="<!c:url value='/formListaAdministrador'/>">Modulo Administrador</a><br-->
         <!--div class="container">
             <div class="row">

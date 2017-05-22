@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cliente cadastrado</title>
+        <title>Categoria cadastrado</title>
     </head>
     <body>
-        <h2>Cliente ${param.nome} cadastrado</h2>
+        <h2>Categoria ${param.descricao} cadastrada</h2>
     </body>
 </html>

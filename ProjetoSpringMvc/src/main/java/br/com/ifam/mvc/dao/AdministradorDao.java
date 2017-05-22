@@ -10,10 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Wilson
- */
+
 @Repository("administradorDao")
 @Transactional
 public class AdministradorDao extends AbstractDao<Integer, Administrador>{
