@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.ifam.mvc.controller;
-;
+
 import br.com.ifam.mvc.dao.CategoriaDao;
 import br.com.ifam.mvc.model.Categoria;
 import java.util.List;
