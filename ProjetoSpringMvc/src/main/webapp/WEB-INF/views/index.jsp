@@ -14,11 +14,9 @@
     </head>
 
     <body>
-        <h1>Welcome</h1>
-        <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-md-offset-3">
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaCliente'/>">Módulo Cliente</a><br>
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaAdministrador'/>">Módulo Administrador</a><br>
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaCategoria'/>">Módulo Categoria</a><br>

@@ -12,7 +12,7 @@
     <body>
         <form action="<c:url value='/cadastrarCategoria'/>" method="post">
             <label for="descricao"><!fmt:message key="usuario.nome"/>Descricao:</label>
-            <input type="text" name="descricao">
+            <input type="text" name="descricao"><br>
             <!form:errors path="usuario.nome" cssStyle="color:red"/>
             <!form:errors path="usuario.login" cssStyle="color:red"/>
             <button type="submit">Cadastrar</button>

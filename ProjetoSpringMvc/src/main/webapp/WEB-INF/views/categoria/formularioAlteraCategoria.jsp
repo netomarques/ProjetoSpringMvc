@@ -12,9 +12,9 @@
     <body>
         <form action="<c:url value='/alterarCategoria'/>" method="post">
             <label for="id"><!fmt:message key="usuario.nome"/>ID:</label>
-            <input type="text" name="id" value="${categoria.id}" readonly>
+            <input type="text" name="id" value="${categoria.id}" readonly><br>
             <label for="descricao"><!fmt:message key="usuario.nome"/>Descrição:</label>
-            <input type="text" name="descricao" value="${categoria.descricao}">
+            <input type="text" name="descricao" value="${categoria.descricao}"><br>
             <!form:errors path="usuario.nome" cssStyle="color:red"/>
             <!form:errors path="usuario.login" cssStyle="color:red"/>
             <button>Alterar</button>

@@ -12,13 +12,13 @@
     <body>
         <form action="<c:url value='/alterarAdministrador'/>" method="post">
             <label for="id"><!fmt:message key="usuario.nome"/>ID:</label>
-            <input type="text" name="id" value="${administrador.id}" readonly>
+            <input type="text" name="id" value="${administrador.id}" readonly><br>
             <label for="nome"><!fmt:message key="usuario.nome"/>Nome:</label>
-            <input type="text" name="nome" value="${administrador.nome}">
+            <input type="text" name="nome" value="${administrador.nome}"><br>
             <label for="login"><!fmt:message key="usuario.login"/>Login:</label>
-            <input type="text" name="login" value="${administrador.login}">
+            <input type="text" name="login" value="${administrador.login}"><br>
             <label for="senha"><!fmt:message key="usuario.senha"/>Senha:</label>
-            <input type="password" name="senha" value="${administrador.senha}">
+            <input type="password" name="senha" value="${administrador.senha}"><br>
             <!form:errors path="usuario.nome" cssStyle="color:red"/>
             <!form:errors path="usuario.login" cssStyle="color:red"/>
             <button>Alterar</button>
