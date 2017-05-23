@@ -11,9 +11,10 @@
         <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
-        <div class="row">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <form class="form-horizontal" action="<!c:url value='/cadastrarCliente'/>" method="post">
+                    <form class="form-horizontal" action="<c:url value='/alterarCliente'/>" method="post">
                         <fieldset>
                             <legend>Formulário de Cliente</legend>
                                 <div class="form-group">
@@ -48,8 +49,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
-                                        <a type="reset" class="btn btn-default" href="<c:url value='/formListaCliente'/>">Cancelar</a>
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <a class="btn btn-default" href="<c:url value='/formListaCliente'/>">Cancelar</a>
+                                        <button type="submit" class="btn btn-primary">Alterar</button>
                                     </div>
                                 </div>
                         </fieldset>
@@ -57,24 +58,6 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        
-        <!--form action="<!c:url value='/alterarCliente'/>" method="post">
-            <label for="id"><!fmt:message key="usuario.nome"/>ID:</label>
-            <input type="text" name="id" value="${cliente.id}" readonly><br>
-            <label for="nome"><!fmt:message key="usuario.nome"/>Nome:</label>
-            <input type="text" name="nome" value="${cliente.nome}"><br>
-            <label for="login"><!fmt:message key="usuario.login"/>Login:</label>
-            <input type="text" name="login" value="${cliente.login}"><br>
-            <label for="senha"><!fmt:message key="usuario.senha"/>Senha:</label>
-            <input type="password" name="senha" value="${cliente.senha}"><br>
-            <!form:errors path="usuario.nome" cssStyle="color:red"/>
-            <!form:errors path="usuario.login" cssStyle="color:red"/>
-            <button>Alterar</button>
-        </form-->           
-        <br><br>
     </body>
     
     <script src="<c:url value='/resources/js/jquery.js'/>"></script>
