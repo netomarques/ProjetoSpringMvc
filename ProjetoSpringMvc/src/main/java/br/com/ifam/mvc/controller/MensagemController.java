@@ -23,7 +23,7 @@ public class MensagemController {
     @RequestMapping("/cadastrarMensagem")
     public String cadstrarMensagem(Mensagem mensagem) {
         mensagemDao.inserirMensagem(mensagem);
-        return "mensagem/mensagem-cadastrado";
+        return "redirect:/formListaMensagem";
     }
     
     @RequestMapping("/formListaMensagem")

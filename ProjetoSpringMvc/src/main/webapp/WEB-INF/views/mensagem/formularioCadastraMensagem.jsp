@@ -8,19 +8,47 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulário de Cadastro de Mensagem</title>
+        <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
-        <form action="<c:url value='/cadastrarMensagem'/>" method="post">
-            <label for="descricao"><!fmt:message key="usuario.nome"/>Descricao:</label><br>
-            <textarea rows="10" cols="30px" name="descricao" maxlength="100"></textarea><br>
-            <select name="tipo" >
-                <option value="">Selecione o tipo da mensagem</option>
-                <option value="elogio">Elogio</option>
-                <option value="reclamacao">Reclamação</option>
-            </select> </br> </br>
-            <!form:errors path="usuario.nome" cssStyle="color:red"/>
-            <!form:errors path="usuario.login" cssStyle="color:red"/>
-            <button type="submit">Cadastrar</button>
-        </form>            
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal" action="<c:url value='/cadastrarMensagem'/>" method="post">
+                        <fieldset>
+                            <legend>Formulário de Mensagem</legend>
+                                <div class="form-group">
+                                    <label for="descricao" class="col-lg-2 control-label">Descricao</label>
+                                    <div class="col-lg-10">
+                                      <textarea class="form-control" rows="3" name="descricao"></textarea>
+                                      <span class="help-block">Mensagem de informação</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tipo" class="col-lg-2 control-label">Tipo</label>
+                                    <div class="col-lg-10">
+                                      <select class="form-control" name="tipo">
+                                        <option value="Elogio">Elogio</option>
+                                        <option value="Sugestao">Sugestao</option>
+                                        <option value="Critica">Critica</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <a class="btn btn-default" href="<c:url value='/formListaMensagem'/>">Cancelar</a>
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    </div>
+                                </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+                    
     </body>
+    
+    <script src="<c:url value='/resources/js/jquery.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
 </html>

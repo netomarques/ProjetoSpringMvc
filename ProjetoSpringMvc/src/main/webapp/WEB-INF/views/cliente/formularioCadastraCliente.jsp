@@ -50,7 +50,8 @@
             </div>
         </div>
                         
-        <script src="<c:url value='/resources/js/jquery.js'/>"></script>
-        <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
     </body>
+    
+    <script src="<c:url value='/resources/js/jquery.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
 </html>

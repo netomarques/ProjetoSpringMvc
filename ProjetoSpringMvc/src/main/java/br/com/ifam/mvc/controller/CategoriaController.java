@@ -23,7 +23,7 @@ public class CategoriaController {
     @RequestMapping("/cadastrarCategoria")
     public String cadstrarCategoria(Categoria categoria) {
         categoriaDao.inserirCategoria(categoria);
-        return "categoria/categoria-cadastrado";
+        return "redirect:/formListaCategoria";
     }
     
     @RequestMapping("/formListaCategoria")

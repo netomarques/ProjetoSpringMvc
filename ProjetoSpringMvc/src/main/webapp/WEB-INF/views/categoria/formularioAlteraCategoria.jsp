@@ -8,18 +8,45 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulário de Alteração de Categoria</title>
+        <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
-        <form action="<c:url value='/alterarCategoria'/>" method="post">
-            <label for="id"><!fmt:message key="usuario.nome"/>ID:</label>
-            <input type="text" name="id" value="${categoria.id}" readonly><br>
-            <label for="descricao"><!fmt:message key="usuario.nome"/>Descrição:</label>
-            <input type="text" name="descricao" value="${categoria.descricao}"><br>
-            <!form:errors path="usuario.nome" cssStyle="color:red"/>
-            <!form:errors path="usuario.login" cssStyle="color:red"/>
-            <button>Alterar</button>
-        </form>           
-        <br><br>
-        <a href="<c:url value='/formListaCategoria'/>">Voltar</a>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal" action="<c:url value='/alterarCategoria'/>" method="post">
+                        <fieldset>
+                            <legend>Formulário de Categoria</legend>
+                            <div class="form-group">
+                                <label for="id" class="col-lg-2 control-label">ID</label>
+                                <div class="col-lg-10">
+                                    <span class="label label-info">
+                                        ${categoria.id}
+                                        <input type="text" name="id" value="${categoria.id}" hidden readonly>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao" class="col-lg-2 control-label">Descricao</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" name="descricao"  value="${categoria.descricao}" placeholder="Categoria">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <a class="btn btn-default" href="<c:url value='/formListaCategoria'/>">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
     </body>
+    
+    <script src="<c:url value='/resources/js/jquery.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
 </html>

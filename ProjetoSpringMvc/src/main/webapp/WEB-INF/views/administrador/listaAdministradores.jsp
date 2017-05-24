@@ -17,8 +17,9 @@
         <link href="<c:url value='/resources/css/estiloTeste.css'/>" rel="stylesheet">        
     </head>
     <body>
+        
         <div class="container">
-            <div class="row"
+            <div class="row">
                 <a href="<c:url value='/' />">Voltar</a> <br><br>
                 <a href="<c:url value='/formCadastraAdministrador'/>">Formulário de Cadastro de Administrador</a><br><br>
         
@@ -30,7 +31,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Login</th>
                             <th scope="col">Senha</th>
-                            <th scope="col">Acão</th>
+                            <th scope="col" colspan="2">Acão</th>
                         </tr>
                     </thead>   
                     <tbody>
@@ -54,7 +55,9 @@
                 </table>
             </div>
         </div>
-        <script src="<c:url value='/resources/js/jquery.js'/>"></script>
-        <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>    
+                
     </body>
+    
+    <script src="<c:url value='/resources/js/jquery.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>    
 </html>

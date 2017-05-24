@@ -23,7 +23,7 @@ public class AdministradorController {
     @RequestMapping("/cadastrarAdministrador")
     public String cadstrarAdministrador(Administrador administrador) {
         administradorDao.inserirAdministrador(administrador);
-        return "administrador/administrador-cadastrado";
+        return "redirect:/formListaAdministrador";
     }
     
     @RequestMapping("/formListaAdministrador")

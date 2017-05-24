@@ -14,7 +14,7 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2"
+                <div class="col-md-8 col-md-offset-2">
                     <a href="<c:url value='/' />">Voltar</a> <br><br>
                     <a href="<c:url value='/formCadastraMensagem'/>">Formulário de Cadastro de Mensagem</a><br><br>
 
@@ -37,6 +37,7 @@
                             </c:forEach>  
                         </tbody>
                     </table>
+                </div>
             </div>
         </div>
     </body>
