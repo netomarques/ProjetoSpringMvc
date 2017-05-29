@@ -24,6 +24,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="sexo" class="col-lg-2 control-label">Tipo</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" name=" cliente.sexo" >
+                                            <option value="">Selecione o sexo</option>
+                                            <c:forEach items="${cliente.sexo}" var="s">
+                                                <option value="${s}"> ${s} </option>
+                                            </c:forEach>    
+                                        </select> </br> </br>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="login" class="col-lg-2 control-label">Login</label>
                                     <div class="col-lg-10">
                                         <input type="text" class="form-control" name="login" placeholder="Email">
