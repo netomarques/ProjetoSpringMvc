@@ -5,35 +5,35 @@
  */
 package br.com.ifam.mvc.dao;
 
-import br.com.ifam.mvc.model.Cliente;
+import br.com.ifam.mvc.model.Produto;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Repository("clienteDao")
+@Repository("produtoDao")
 @Transactional
-public class ClienteDao extends AbstractDao<Integer, Cliente>{
+public class ProdutoDao extends AbstractDao<Integer, Produto>{
 
-    public Cliente pesquisarCliente(int id){
+    public Produto pesquisarProduto(int id){
         return getByKey(id);
     }
     
-    public void inserirCliente(Cliente cliente){
-        persist(cliente);
+    public void inserirProduto(Produto produto){
+        persist(produto);
     }
     
-    public void excluirCliente(int id){
-        Cliente cliente = getByKey(id);
-        delete(cliente);
+    public void excluirProduto(int id){
+        Produto produto = getByKey(id);
+        delete(produto);
     } 
     
-    public List<Cliente> listarClientes(){
+    public List<Produto> listarProdutos(){
         return createEntityCriteria().list();
     }
     
-    public void atualizarCliente(Cliente cliente){
-        merge(cliente);
+    public void atualizarProduto(Produto produto){
+        merge(produto);
     }
     
 }

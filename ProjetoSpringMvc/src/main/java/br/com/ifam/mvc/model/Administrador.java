@@ -27,7 +27,7 @@ public class Administrador {
     @Column(name = "admlogin", nullable = false, length = 60)
     private String login;
     
-    @Column(name = "admseha", nullable = false, length = 60)
+    @Column(name = "admsenha", nullable = false, length = 60)
     private String senha;
 
     public int getId() {

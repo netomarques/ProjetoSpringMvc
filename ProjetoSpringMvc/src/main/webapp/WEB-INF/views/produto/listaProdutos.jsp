@@ -7,14 +7,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listagem de Clientes</title>
-        <link href="<c:url value='/resources/css/bootstrap.min.css'/>" rel="stylesheet">   
+        <title>Listagem de Produtos</title>
+        <link href="<c:url value='/resources/css/bootstrap.min.css'/>" rel="stylesheet">        
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <a href="<c:url value='/' />">Voltar</a> <br><br>
-                <a href="<c:url value='/formCadastraCliente'/>">Formulário de cadastro de cliente</a><br><br>
+                <a href="<c:url value='/formCadastraProduto'/>">Formulário de cadastro de Produto</a><br><br>
 
                 <table class="table table-hover">
                     <caption>Clientes</caption>
@@ -22,23 +22,23 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">Login</th>
-                            <th scope="col">Senha</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Administrador</th>
                             <th scope="col">Acão</th>
                         </tr>                
                     </thead>
                     <tbody>
-                        <c:forEach var="cliente" items="${listaClientes}">
+                        <c:forEach var="produto" items="${listaProdutos}">
                             <tr>
-                                <td>${cliente.id}</td>
-                                <td>${cliente.nome}</td>
-                                <td>${cliente.login}</td>
-                                <td>${cliente.senha}</td>
+                                <td>${produto.id}</td>
+                                <td>${produto.nome}</td>
+                                <td>${produto.categoria.descricao}</td>
+                                <td>${produto.administrador.nome}</td>
                                 <td>
-                                    <a href="formAlteraCliente?id=${cliente.id}">Alterar</a>
+                                    <a href="formAlteraProduto?id=${produto.id}">Alterar</a>
                                 </td>
                                 <td>
-                                    <a href="removerCliente?id=${cliente.id}" onclick="return confirm('Deseja realmente excluir')">
+                                    <a href="removerProduto?id=${produto.id}" onclick="return confirm('Deseja realmente excluir')">
                                         Remover
                                     </a>
                                 </td>
@@ -48,7 +48,6 @@
                 </table>
             </div>
         </div>
-
     </body>
     
     <script src="<c:url value='/resources/js/jquery.js'/>"></script>

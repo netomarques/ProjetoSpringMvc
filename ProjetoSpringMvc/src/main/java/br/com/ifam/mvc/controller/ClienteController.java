@@ -30,7 +30,7 @@ public class ClienteController {
     }
     
     @RequestMapping("/cadastrarCliente")
-    public String cadstrarCliente(@Validated Cliente cliente, BindingResult result) {
+    public String cadastrarCliente(@Validated Cliente cliente, BindingResult result) {
         
         if (result.hasErrors()) {
             return "redirect:/formCadastraCliente";

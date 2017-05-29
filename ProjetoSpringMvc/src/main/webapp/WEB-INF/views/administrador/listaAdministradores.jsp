@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listagem-tarefas
-    Created on : 01/05/2017, 14:36:22
-    Author     : Wilson
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
