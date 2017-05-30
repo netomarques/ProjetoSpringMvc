@@ -30,6 +30,9 @@ public class Produto implements Serializable {
     @ManyToOne(optional=false)
     @JoinColumn(name = "proadmid")
     private Administrador administrador;
+    
+    @Column(name = "proimagem", nullable = false, length = 255)
+    private String imagem;
 
     public int getId() {
         return id;
@@ -61,6 +64,14 @@ public class Produto implements Serializable {
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
 }

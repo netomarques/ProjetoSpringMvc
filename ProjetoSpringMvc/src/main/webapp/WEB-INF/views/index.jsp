@@ -22,6 +22,7 @@
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaCategoria'/>">Módulo Categoria</a><br>
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaMensagem'/>">Módulo Mensagem</a><br>
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaProduto'/>">Módulo Produto</a><br>
+                    <a class="btn btn-info btn-lg btn-block active" role="button" href="<c:url value='/formListaCurriculo'/>">Módulo Curriculo</a><br>
                 </div>
             </div>
         </div>

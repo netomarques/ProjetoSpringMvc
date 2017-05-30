@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <form class="form-horizontal" action="<c:url value='/alterarProduto'/>" method="post">
+                    <form class="form-horizontal" action="<c:url value='/alterarProduto'/>" method="post" enctype="multipart/form-data">
                         <fieldset>
                             <legend>Formulário de Produto</legend>   
                                 <div class="form-group">
@@ -42,6 +42,12 @@
                                         <input type="text" class="form-control" name="nome" value="${produto.nome}" placeholder="Nome do Produto">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="file" class="col-lg-2 control-label">Nome</label>
+                                    <div class="col-lg-10">
+                                        <input type="file" class="form-control" name="file" value="${produto.imagem}">
+                                    </div>
+                                </div>    
                                 <div class="form-group">
                                     <label for="categoria.id" class="col-lg-2 control-label">Tipo</label>
                                     <div class="col-lg-10">

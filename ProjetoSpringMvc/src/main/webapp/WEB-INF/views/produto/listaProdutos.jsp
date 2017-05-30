@@ -23,6 +23,7 @@
                             <th scope="col">Id</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Categoria</th>
+                            <th scope="col">Imagem</th>
                             <th scope="col">Administrador</th>
                             <th scope="col">Acão</th>
                         </tr>                
@@ -33,6 +34,11 @@
                                 <td>${produto.id}</td>
                                 <td>${produto.nome}</td>
                                 <td>${produto.categoria.descricao}</td>
+                                <td>
+                                    <figure>
+                                        <img src="<c:url value='/resources/img/${produto.imagem}'/>"/>
+                                    </figure>
+                                </td>    
                                 <td>${produto.administrador.nome}</td>
                                 <td>
                                     <a href="formAlteraProduto?id=${produto.id}">Alterar</a>

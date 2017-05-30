@@ -4,11 +4,17 @@ import br.com.ifam.mvc.dao.CategoriaDao;
 import br.com.ifam.mvc.dao.ProdutoDao;
 import br.com.ifam.mvc.model.Administrador;
 import br.com.ifam.mvc.model.Produto;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
@@ -29,7 +35,7 @@ public class ProdutoController {
     }
     
     @RequestMapping("/cadastrarProduto")
-    public String cadastrarProduto(Produto produto) {
+    public String cadastrarProduto(@RequestParam("file") MultipartFile file,Produto produto) {
         
         /*if (result.hasErrors()) {
             return "redirect:/formCadastraProduto";
@@ -38,11 +44,17 @@ public class ProdutoController {
         
         Administrador admin = new Administrador();
         admin.setId(1);
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\" + file.getOriginalFilename());
+            Files.write(path, bytes);
+        } catch (IOException e) {
+        }
         
-        produto.setAdministrador(admin);
-        
-        produtoDao.inserirProduto(produto);
-        
+         produto.setImagem(file.getOriginalFilename());
+         produto.setAdministrador(admin);
+         produtoDao.inserirProduto(produto);
+         
         return "redirect:/formListaProduto";
     }
     
@@ -58,9 +70,6 @@ public class ProdutoController {
     
     @RequestMapping("/formAlteraProduto")
     public String formAlteraProduto(int id, Model model){
-        //System.out.println("Administrador: "+ produto.getAdministrador().getId());
-        //System.out.println("Administrador: "+ produto.getAdministrador().getNome());
-        //model.addAttribute("administrador", new Administrador());
         
         model.addAttribute("produto", produtoDao.pesquisarProduto(id));
         
@@ -70,10 +79,17 @@ public class ProdutoController {
     }
     
     @RequestMapping("/alterarProduto")
-    public String alterarProduto(Produto produto){
-        System.out.println("Produto id: "+ produto.getAdministrador());
+    public String alterarProduto(@RequestParam("file") MultipartFile file,Produto produto){
         
-        produtoDao.atualizarProduto(produto);
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\" + file.getOriginalFilename());
+            Files.write(path, bytes);
+        } catch (IOException e) {
+        }
+        
+         produto.setImagem(file.getOriginalFilename());
+         produtoDao.atualizarProduto(produto);
         
         return "redirect:/formListaProduto";
     }
