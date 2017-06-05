@@ -3,6 +3,8 @@ package br.com.ifam.mvc.controller;
 import br.com.ifam.mvc.dao.CategoriaDao;
 import br.com.ifam.mvc.dao.ProdutoDao;
 import br.com.ifam.mvc.model.Administrador;
+import br.com.ifam.mvc.model.Carrinho;
+import br.com.ifam.mvc.model.ItemCompra;
 import br.com.ifam.mvc.model.Produto;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,6 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ProdutoController {
+    
+    @Autowired
+    private Carrinho carrinho;
     
     @Autowired
     private ProdutoDao produtoDao;
@@ -108,12 +113,15 @@ public class ProdutoController {
         List<Produto> listaProdutos =  produtoDao.listarProdutos();
         
         model.addAttribute("listaProdutos", listaProdutos);
-        
+        model.addAttribute("carrinho", carrinho);
         return "produto/listagemProdutos";
     }
     
     @RequestMapping("/detalheProduto")
-    public String detalheProduto(Model model){
+    public String detalheProduto(int id,Model model){
+        model.addAttribute("produto", produtoDao.pesquisarProduto(id));
+        ItemCompra item = new ItemCompra();
+        model.addAttribute("item", item);
         
         return "produto/detalheProduto";
     }

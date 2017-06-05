@@ -11,48 +11,6 @@
         <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
-        <table class="table table-hover">
-                    <caption>Clientes</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Descricao</th>
-                            <th scope="col">Preco</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Imagem</th>
-                            <th scope="col">Administrador</th>
-                            <th scope="col">Acão</th>
-                        </tr>                
-                    </thead>
-                    <tbody>
-                        <c:forEach var="produto" items="${listaProdutos}">
-                            <tr>
-                                <td>${produto.id}</td>
-                                <td>${produto.nome}</td>
-                                <td>${produto.descricao}</td>
-                                <td>${produto.preco}</td>
-                                <td>${produto.categoria.descricao}</td>
-                                <td>
-                                    <figure>
-                                        <img src="<c:url value='/resources/img/produtos/${produto.imagem}'/>"/>
-                                    </figure>
-                                </td>    
-                                <td>${produto.administrador.nome}</td>
-                                <td>
-                                    <a href="formAlteraProduto?id=${produto.id}">Alterar</a>
-                                </td>
-                                <td>
-                                    <a href="removerProduto?id=${produto.id}" onclick="return confirm('Deseja realmente excluir')">
-                                        Remover
-                                    </a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-        
-        
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">

@@ -1,79 +1,90 @@
-<%-- 
-    Document   : detalheProduto
-    Created on : 05/06/2017, 03:54:21
-    Author     : Wilson
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Detalhes do Produto</title>
+        <!--link href="<!c:url value='/resources/css/bootstrap.min.css'/>" rel="stylesheet"-->
+        <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table table-striped">
-                    <tr>
-                        <td>
-                            <img alt="${produto}" src="" class="" height="550" width="550">
-                        </td>                                
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-6">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="#">Descricao</a></li>
-                    <table class="table table-striped">
-                        <tr>
-                            <td>
-                                <p>O shampoo Dove Men Proteção Anticaspa torna suas roupas escuras 
-                                    ainda mais atraentes e livre das caspas. Sua fórmula possui Zinc 
-                                    Pyrithione que ajuda a eliminar a caspa e deixa seu cabelo mais 
-                                    saudável e com um brilho natural.</p>
-                            </td>                                
-                        </tr>
-                        <tr>
-                            <td>                                        
-                        <li value="Shampoo Dove Men">Nome: Shampoo Dove Men</li>
-                        <input type="hidden" value="Shampoo Dove Men" id="nome">
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Preco: R$20,70
-                                <input type="hidden" value="20.70" id="preco">
-                            </td>                                
-                        </tr>
-                        <tr>
-                            <td>
-                                Marca: DOVE
-                                <input type="hidden" value="DOVE" id="marca">
-                            </td>                                
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group">
-                                    <input id="quantidade" value="2" type="text" class="form-control" placeholder="" aria-describedby="basic-addon2">
-                                    <span class="input-group-addon" id="basic-addon2">Quantidade</span>
+        <div class="container">
+             <header>
+                <div class="row">
+                    <c:import url="/topo"/>
+                </div>       
+            </header>
+            <section>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <figure>
+                                        <img alt="${produto.nome}" src="<c:url value='/resources/img/produtos/${produto.imagem}'/>" class="img-thumbnail" height="550" width="550">
+                                    </figure>
+                                </td>                                
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-horizontal" action="<c:url value='/carrinho?id=${produto.id}'/>" method="post">
+                        <fieldset>
+                            <legend>Detalhes</legend>      
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="nome">Nome</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control"  name="nome" value="${produto.nome}" type="text" readonly>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <nav aria-label="...">
-                                    <ul class="pager">
-                                        <li><a href="Home.html" target="Home.html">Voltar</a></li>
-                                        <li><a href="ProdutosCarrinho.html" target="Home.html" id="botaoAdicionar">Adicionar ao Carrinho</a></li>
-                                    </ul>
-                                </nav>
-                            </td>                                    
-                        </tr>
-
-                    </table>                            
-                </ul>
-            </div>                    
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="descricao">Descricao</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control"  name="descricao" value="${produto.descricao}" type="text" readonly>
+                                    </div>
+                                </div>    
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="preco">R$</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control"  name="preco" value="${produto.preco}" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="categoria">categoria</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control"  name="categoria" value="${produto.categoria.descricao}" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group has-warning">
+                                    <label class="control-label" for="quantidade">Quantidade</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control"  name="quantidade" type="text">
+                                    </div>
+                                </div>     
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <a class="btn btn-default" href="<c:url value='/listagemProdutos'/>">Cancelar</a>
+                                        <button type="submit" class="btn btn-primary">Comprar</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>                    
+                </div>
+            </section>
+            <footer>
+                <div class="row">
+                    <div class="container-fluid">
+                        <div clas="col-md-12">
+                             <c:import url='/rodape'/>
+                        </div>
+                    </div>
+                </div>
+            </footer> 
         </div>
     </body>
 </html>

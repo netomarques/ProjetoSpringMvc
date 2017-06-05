@@ -28,6 +28,9 @@ public class ItemCompra implements Serializable {
     @ManyToOne(optional=false)
     @JoinColumn(name = "itproid")
     private Produto produto;
+    
+    @Column(name = "itquantidade")
+    private Integer quantidade;
 
     public int getId() {
         return id;
@@ -51,6 +54,14 @@ public class ItemCompra implements Serializable {
 
     public void setProdutos(Produto produto) {
         this.produto = produto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
     
 }
