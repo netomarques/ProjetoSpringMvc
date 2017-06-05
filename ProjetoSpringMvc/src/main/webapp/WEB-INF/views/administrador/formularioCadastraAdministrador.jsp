@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,6 +23,17 @@
                                     <label for="nome" class="col-lg-2 control-label">Nome</label>
                                     <div class="col-lg-10">
                                         <input type="text" class="form-control" name="nome" placeholder="Nome completo">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sexo" class="col-lg-2 control-label">Sexo</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" name="sexo" >
+                                            <option value="">Selecione o sexo</option>
+                                            <c:forEach items="${sexo}" var="s">
+                                                <option value="${s}"> ${s} </option>
+                                            </c:forEach>    
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

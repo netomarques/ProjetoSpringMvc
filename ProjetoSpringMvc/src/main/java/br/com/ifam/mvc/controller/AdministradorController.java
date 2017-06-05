@@ -2,6 +2,7 @@ package br.com.ifam.mvc.controller;
 
 import br.com.ifam.mvc.dao.AdministradorDao;
 import br.com.ifam.mvc.model.Administrador;
+import br.com.ifam.mvc.model.Sexo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,8 @@ public class AdministradorController {
     private AdministradorDao administradorDao;
     
     @RequestMapping("/formCadastraAdministrador")
-    public String formCadastraAdministrador(){
+    public String formCadastraAdministrador(Model model){
+        model.addAttribute("sexo", Sexo.values());
         return "administrador/formularioCadastraAdministrador";
     }
     
@@ -36,6 +38,7 @@ public class AdministradorController {
     @RequestMapping("/formAlteraAdministrador")
     public String formAlteraAdministrador(int id, Model model){
         model.addAttribute("administrador", administradorDao.pesquisarAdministrador(id));
+        model.addAttribute("sexo", Sexo.values());
         return "administrador/formularioAlteraAdministrador";
     }
     

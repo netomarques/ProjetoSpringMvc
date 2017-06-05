@@ -7,7 +7,6 @@ package br.com.ifam.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -20,5 +19,15 @@ public class IndexController {
     public String index(){
         return  "index";
     }
+    
+    @RequestMapping("/rodape")
+    public String rodape(){
+        return  "index/rodape";
+    }
+    
+    @RequestMapping("/topo")
+    public String topo(){
+        return  "index/topo";
+    }    
     
 }

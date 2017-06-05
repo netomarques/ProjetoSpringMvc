@@ -19,7 +19,7 @@ public class Produto implements Serializable {
     @Column(name = "proid")
     private int id;
     
-    //@NotBlank(message= "Nome é obrigatório")
+    @NotBlank(message= "Nome é obrigatório")
     @Column(name = "pronome", nullable = false, length = 80)
     private String nome;
     
@@ -31,8 +31,14 @@ public class Produto implements Serializable {
     @JoinColumn(name = "proadmid")
     private Administrador administrador;
     
-    @Column(name = "proimagem", nullable = false, length = 255)
+    @Column(name = "proimagem", nullable = false, length = 400)
     private String imagem;
+    
+    @Column(name = "prodescricao", length = 100)
+    private String descricao;
+    
+    @Column(name = "propreco", nullable = false, scale = 2)
+    private Double preco;
 
     public int getId() {
         return id;
@@ -72,6 +78,22 @@ public class Produto implements Serializable {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
     
 }

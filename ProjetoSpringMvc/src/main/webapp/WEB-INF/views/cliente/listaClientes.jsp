@@ -24,6 +24,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Login</th>
                             <th scope="col">Senha</th>
+                            <th scope="col">Sexo</th>
                             <th scope="col">Acão</th>
                         </tr>                
                     </thead>
@@ -34,6 +35,7 @@
                                 <td>${cliente.nome}</td>
                                 <td>${cliente.login}</td>
                                 <td>${cliente.senha}</td>
+                                <td>${cliente.sexo}</td>
                                 <td>
                                     <a href="formAlteraCliente?id=${cliente.id}">Alterar</a>
                                 </td>

@@ -46,7 +46,7 @@ public class ProdutoController {
         admin.setId(1);
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\" + file.getOriginalFilename());
+            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\produtos\\" + file.getOriginalFilename());
             Files.write(path, bytes);
         } catch (IOException e) {
         }
@@ -83,7 +83,7 @@ public class ProdutoController {
         
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\" + file.getOriginalFilename());
+            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\produtos\\" + file.getOriginalFilename());
             Files.write(path, bytes);
         } catch (IOException e) {
         }
@@ -100,6 +100,22 @@ public class ProdutoController {
         produtoDao.excluirProduto(id);
         
         return "redirect:/formListaProduto";
+    }
+    
+    @RequestMapping("/listagemProdutos")
+    public String listagemProdutos(Model model){
+        
+        List<Produto> listaProdutos =  produtoDao.listarProdutos();
+        
+        model.addAttribute("listaProdutos", listaProdutos);
+        
+        return "produto/listagemProdutos";
+    }
+    
+    @RequestMapping("/detalheProduto")
+    public String detalheProduto(Model model){
+        
+        return "produto/detalheProduto";
     }
     
 }

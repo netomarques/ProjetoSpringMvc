@@ -1,12 +1,14 @@
 package br.com.ifam.mvc.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
@@ -25,7 +27,7 @@ public class Cliente implements Serializable {
     private String nome;
     
     @NotBlank(message= "Login é obrigatório")
-    @Column(name = "clilogin", nullable = false,length = 60)
+    @Column(name = "clilogin", nullable = false, length = 60, unique = true)
     private String login;
     
     @NotBlank(message= "Senha é obrigatória")
@@ -34,8 +36,11 @@ public class Cliente implements Serializable {
     
     @NotNull(message= "Informe o sexo")
     @Enumerated(EnumType.STRING)
-    @Column(name = "clisexo", nullable=false, length = 15)
+    @Column(name = "clisexo", nullable=false, length = 10)
     private Sexo sexo;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public int getId() {
         return id;
@@ -75,6 +80,14 @@ public class Cliente implements Serializable {
 
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
     
 }

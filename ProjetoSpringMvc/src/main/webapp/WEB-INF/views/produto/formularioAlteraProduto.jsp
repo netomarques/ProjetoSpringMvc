@@ -43,13 +43,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="file" class="col-lg-2 control-label">Nome</label>
+                                    <label for="descricao" class="col-lg-2 control-label">Descricao</label>
                                     <div class="col-lg-10">
-                                        <input type="file" class="form-control" name="file" value="${produto.imagem}">
+                                        <input type="text" class="form-control" name="descricao" value="${produto.descricao}" placeholder="Descrição do Produto">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preco" class="col-lg-2 control-label">preco</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" name="preco" value="${produto.preco}" placeholder="Preço do Produto">
                                     </div>
                                 </div>    
+                                 
                                 <div class="form-group">
-                                    <label for="categoria.id" class="col-lg-2 control-label">Tipo</label>
+                                    <label for="categoria.id" class="col-lg-2 control-label">Categoria</label>
                                     <div class="col-lg-10">
                                         <select class="form-control" name="categoria.id" >
                                             <option value="">Selecione a categoria</option>
@@ -62,6 +69,12 @@
                                         </select> </br> </br>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="file" class="col-lg-2 control-label">Imagem</label>
+                                    <div class="col-lg-10">
+                                        <input type="file" class="form-control" name="file" value="${produto.imagem}">
+                                    </div>
+                                </div>       
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
                                         <a class="btn btn-default" href="<c:url value='/formListaProduto'/>">Cancelar</a>

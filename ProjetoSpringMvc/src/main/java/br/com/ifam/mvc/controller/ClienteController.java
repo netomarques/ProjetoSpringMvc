@@ -7,6 +7,7 @@ package br.com.ifam.mvc.controller;
 
 import br.com.ifam.mvc.dao.ClienteDao;
 import br.com.ifam.mvc.model.Cliente;
+import br.com.ifam.mvc.model.Sexo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,9 @@ public class ClienteController {
     private ClienteDao clienteDao;
     
     @RequestMapping("/formCadastraCliente")
-    public String formCadastraCliente(){
+    public String formCadastraCliente(Model model){
         
+        model.addAttribute("sexo", Sexo.values());
         return "cliente/formularioCadastraCliente";
         
     }
@@ -55,7 +57,7 @@ public class ClienteController {
     public String formAlteraCliente(int id, Model model){
         
         model.addAttribute("cliente", clienteDao.pesquisarCliente(id));
-        
+        model.addAttribute("sexo", Sexo.values());
         return "cliente/formularioAlteraCliente";
     }
     

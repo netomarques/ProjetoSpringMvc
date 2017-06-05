@@ -11,6 +11,7 @@ package br.com.ifam.mvc.model;
  */
 public enum Sexo {
     
-    MASCULINO,
-    FEMININO;
+    Masculino,
+    Feminino;
+    
 }

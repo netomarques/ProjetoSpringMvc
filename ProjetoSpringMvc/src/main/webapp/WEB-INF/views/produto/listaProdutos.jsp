@@ -22,6 +22,8 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Descricao</th>
+                            <th scope="col">Preco</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Imagem</th>
                             <th scope="col">Administrador</th>
@@ -33,10 +35,12 @@
                             <tr>
                                 <td>${produto.id}</td>
                                 <td>${produto.nome}</td>
+                                <td>${produto.descricao}</td>
+                                <td>${produto.preco}</td>
                                 <td>${produto.categoria.descricao}</td>
                                 <td>
                                     <figure>
-                                        <img src="<c:url value='/resources/img/${produto.imagem}'/>"/>
+                                        <img src="<c:url value='/resources/img/produtos/${produto.imagem}'/>"/>
                                     </figure>
                                 </td>    
                                 <td>${produto.administrador.nome}</td>

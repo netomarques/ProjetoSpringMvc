@@ -11,6 +11,48 @@
         <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
+        <table class="table table-hover">
+                    <caption>Clientes</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descricao</th>
+                            <th scope="col">Preco</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">Administrador</th>
+                            <th scope="col">Acão</th>
+                        </tr>                
+                    </thead>
+                    <tbody>
+                        <c:forEach var="produto" items="${listaProdutos}">
+                            <tr>
+                                <td>${produto.id}</td>
+                                <td>${produto.nome}</td>
+                                <td>${produto.descricao}</td>
+                                <td>${produto.preco}</td>
+                                <td>${produto.categoria.descricao}</td>
+                                <td>
+                                    <figure>
+                                        <img src="<c:url value='/resources/img/produtos/${produto.imagem}'/>"/>
+                                    </figure>
+                                </td>    
+                                <td>${produto.administrador.nome}</td>
+                                <td>
+                                    <a href="formAlteraProduto?id=${produto.id}">Alterar</a>
+                                </td>
+                                <td>
+                                    <a href="removerProduto?id=${produto.id}" onclick="return confirm('Deseja realmente excluir')">
+                                        Remover
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+        
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -24,20 +66,32 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="file" class="col-lg-2 control-label">Nome</label>
+                                    <label for="descricao" class="col-lg-2 control-label">Descricao</label>
                                     <div class="col-lg-10">
-                                        <input type="file" class="form-control" name="file">
+                                        <input type="text" class="form-control" name="descricao" placeholder="Descricao do Produto">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="categoria.id" class="col-lg-2 control-label">Tipo</label>
+                                    <label for="preco" class="col-lg-2 control-label">Preço</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" name="preco" placeholder="Preço do Produto">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="categoria.id" class="col-lg-2 control-label">Categoria</label>
                                     <div class="col-lg-10">
                                         <select class="form-control" name="categoria.id" >
                                             <option value="">Selecione a categoria</option>
                                             <c:forEach items="${categorias}" var="categoria">
                                                 <option value="${categoria.id}"> ${categoria.descricao} </option>
                                             </c:forEach>    
-                                        </select> </br> </br>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file" class="col-lg-2 control-label">Imagem</label>
+                                    <div class="col-lg-10">
+                                        <input type="file" class="form-control" name="file">
                                     </div>
                                 </div>
                                 <div class="form-group">
