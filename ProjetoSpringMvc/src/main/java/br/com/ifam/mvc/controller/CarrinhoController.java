@@ -5,6 +5,7 @@
  */
 package br.com.ifam.mvc.controller;
 
+import br.com.ifam.mvc.dao.ClienteDao;
 import br.com.ifam.mvc.dao.CompraDao;
 import br.com.ifam.mvc.dao.ItemCompraDao;
 import br.com.ifam.mvc.dao.ProdutoDao;
@@ -12,10 +13,14 @@ import br.com.ifam.mvc.model.Carrinho;
 import br.com.ifam.mvc.model.Cliente;
 import br.com.ifam.mvc.model.Compra;
 import br.com.ifam.mvc.model.ItemCompra;
+import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -32,43 +37,53 @@ public class CarrinhoController {
     private ProdutoDao produtoDao;
     
     @Autowired
-    private CompraDao compraDao;
+    private ClienteDao clienteDao;
     
     @Autowired
-    private ItemCompraDao itemCompraDao;
+    private CompraDao compraDao;
     
-    @RequestMapping("/carrinho")
-    public String adiciona(int id,ItemCompra item){
-        item.setProdutos(produtoDao.pesquisarProduto(id));
-        System.out.println("Item Produto "+ item.getProduto().getId());
-        carrinho.adiciona(item);
+    @RequestMapping("/adicionarItemCompra")
+    public String adiciona(@RequestParam("id")int id, @RequestParam("quantidade") int qtde){
         
-        return "redirect:/listagemProdutos";
+        ItemCompra itemCompra = new ItemCompra();
+        itemCompra.setProdutos(produtoDao.pesquisarProduto(id));
+        itemCompra.setQuantidade(qtde);
+        System.out.println("Item Produto, quantidade: "+ itemCompra.getQuantidade());
+        carrinho.adicionarItem(itemCompra);
+        
+        return "redirect:/listarProdutos";
     }
     
     @RequestMapping("/visualizarCarrinho")
     public String visualizaCarrinho(Model model){
+        
         model.addAttribute("carrinho",carrinho);
+        
         return "carrinho/visualizarCarrinho";
+    }
+    
+    @RequestMapping("/verCarrinho")
+    public String verCarrinho(Model model){
+        
+        if(carrinho.getCompra()==null){
+            carrinho.setCompra(new Compra(clienteDao.pesquisarCliente(1), new ArrayList<ItemCompra>(), 0.0));
+        }
+        
+        model.addAttribute("carrinho",carrinho);
+        
+        return "carrinho/verCarrinho";
     }
     
     @RequestMapping("/finalizarCompra")
     public String finalizarCompra(){
-        Compra compra = new Compra();
-        Cliente cliente = new Cliente();
-        cliente.setId(1);
-        compra.setCliente(cliente);
+        //Compra compra = new Compra();
+        
+        carrinho.getCompra().setCliente(clienteDao.pesquisarCliente(1));
         //compra.setItens(carrinho.getItens());
         
-        for(ItemCompra  it : carrinho.getItens()){
-            System.out.println(it.getProduto().getNome());
-            it.setCompra(compra);
-            itemCompraDao.inserirItemCompra(it);
-        }
-        compra.setItens(carrinho.getItens());
-        compraDao.inserirCompra(compra);
+        compraDao.inserirCompra(carrinho.getCompra());
         
-        return "redirect:/formListaCliente";
+        return "redirect:/";
     }
     
     

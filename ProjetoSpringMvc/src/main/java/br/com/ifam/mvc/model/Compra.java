@@ -3,6 +3,7 @@ package br.com.ifam.mvc.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="compra")
@@ -28,12 +31,21 @@ public class Compra implements Serializable {
     private Cliente cliente;
     
     @OneToMany(mappedBy = "compra", cascade = CascadeType.PERSIST)
-    private List<ItemCompra> itens = new ArrayList<ItemCompra>();
+    private List<ItemCompra> itens;
     
-    /*@Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "comtotal")
+    private Double total;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "comdata")
-    private Calendar data;*/
+    private Calendar data;
 
+    public Compra(Cliente cliente, ArrayList<ItemCompra> itens, Double total) {
+        this.cliente = cliente;
+        this.itens = itens;
+        this.total = total;
+    }
+    
     public int getId() {
         return id;
     }
@@ -57,5 +69,20 @@ public class Compra implements Serializable {
     public void setItens(List<ItemCompra> itens) {
         this.itens = itens;
     }
-    
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Calendar getData() {
+        return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
 }

@@ -32,7 +32,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <c:forEach items="${carrinho.itens}" var="item">
+                      <c:forEach items="${carrinho.compra.itens}" var="item">
                         <tr>
                           <td>${item.produto.nome }</td>
                           <td>${item.produto.descricao }</td>

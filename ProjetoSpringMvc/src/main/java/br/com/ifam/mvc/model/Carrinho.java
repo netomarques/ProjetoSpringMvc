@@ -10,16 +10,16 @@ import org.springframework.stereotype.Component;
 @SessionScoped
 public class Carrinho {
     
-    private List<ItemCompra> itens = new ArrayList<>();
+    private Compra compra;
     
     private Double total = 0.0;
-
-    public List<ItemCompra> getItens() {
-        return itens;
+    
+    public Compra getCompra(){
+        return compra;
     }
-
-    public void setItens(List<ItemCompra> itens) {
-        this.itens = itens;
+    
+    public void setCompra(Compra compra){
+        this.compra = compra;
     }
 
     public Double getTotal() {
@@ -30,13 +30,21 @@ public class Carrinho {
         this.total = total;
     }
     
-    public void adiciona(ItemCompra item){
-        itens.add(item);
+    public void adicionarItem(ItemCompra item){
+        item.setCompra(compra);
+        compra.getItens().add(item);
         total+=item.getProduto().getPreco() * item.getQuantidade();
+        compra.setTotal(total);
+    }
+    
+    public void removeItem(ItemCompra item){
+        compra.getItens().remove(item);
+        total-=item.getProduto().getPreco() * item.getQuantidade();
+        compra.setTotal(total);
     }
     
     public Integer getTotalDeItens(){
-        return itens.size();
+        return compra.getItens().size();
     }
     
 }

@@ -25,38 +25,38 @@
                             <tr>
                                 <td>
                                     <figure>
-                                        <img alt="${produto.nome}" src="<c:url value='/resources/img/produtos/${produto.imagem}'/>" class="img-thumbnail" height="550" width="550">
+                                        <img alt="${itemCompra.produto.nome}" src="<c:url value='/resources/img/produtos/${itemCompra.produto.imagem}'/>" class="img-thumbnail" height="550" width="550">
                                     </figure>
                                 </td>                                
                             </tr>
                         </table>
                     </div>
                     <div class="col-md-6">
-                        <form class="form-horizontal" action="<c:url value='/carrinho?id=${produto.id}'/>" method="post">
+                        <form class="form-horizontal" action="<c:url value='/adicionarItemCompra?id=${itemCompra.produto.id}'/>" method="post" modelAttribute="itemCompra">
                         <fieldset>
                             <legend>Detalhes</legend>      
                                 <div class="form-group has-success">
                                     <label class="control-label" for="nome">Nome</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control"  name="nome" value="${produto.nome}" type="text" readonly>
+                                        <input class="form-control"  name="nome" value="${itemCompra.produto.nome}" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="descricao">Descricao</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control"  name="descricao" value="${produto.descricao}" type="text" readonly>
+                                        <input class="form-control"  name="descricao" value="${itemCompra.produto.descricao}" type="text" readonly>
                                     </div>
                                 </div>    
                                 <div class="form-group has-success">
                                     <label class="control-label" for="preco">R$</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control"  name="preco" value="${produto.preco}" type="text" readonly>
+                                        <input class="form-control"  name="preco" value="${itemCompra.produto.preco}" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="categoria">categoria</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control"  name="categoria" value="${produto.categoria.descricao}" type="text" readonly>
+                                        <input class="form-control"  name="categoria" value="${itemCompra.produto.categoria.descricao}" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group has-warning">

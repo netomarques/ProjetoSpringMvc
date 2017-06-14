@@ -13,6 +13,7 @@
     <body>
         <div class="container">
             <section>
+                <h3><a href="<c:url value="/visualizarCarrinho"/>">Visualizar Carrinho</a></h3>
                 <div id="carrinho">
                     <h3>Meu carrinho:</h3>
                     <c:if test="${empty carrinho or carrinho.totalDeItens eq 0 }">

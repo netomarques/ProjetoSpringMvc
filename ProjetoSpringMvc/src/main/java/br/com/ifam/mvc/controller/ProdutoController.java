@@ -1,15 +1,19 @@
 package br.com.ifam.mvc.controller;
 
 import br.com.ifam.mvc.dao.CategoriaDao;
+import br.com.ifam.mvc.dao.ClienteDao;
 import br.com.ifam.mvc.dao.ProdutoDao;
 import br.com.ifam.mvc.model.Administrador;
 import br.com.ifam.mvc.model.Carrinho;
+import br.com.ifam.mvc.model.Cliente;
+import br.com.ifam.mvc.model.Compra;
 import br.com.ifam.mvc.model.ItemCompra;
 import br.com.ifam.mvc.model.Produto;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +31,9 @@ public class ProdutoController {
     
     @Autowired
     private ProdutoDao produtoDao;
+    
+    @Autowired
+    private ClienteDao clienteDao;
     
     @Autowired
     private CategoriaDao categoriaDao;
@@ -107,21 +114,30 @@ public class ProdutoController {
         return "redirect:/formListaProduto";
     }
     
-    @RequestMapping("/listagemProdutos")
-    public String listagemProdutos(Model model){
+    @RequestMapping("/listarProdutos")
+    public String listarProdutos(Model model){
         
         List<Produto> listaProdutos =  produtoDao.listarProdutos();
         
+        /*if(carrinho.getCompra()==null){
+            carrinho.setCompra(new Compra(clienteDao.pesquisarCliente(1), new ArrayList<ItemCompra>(), 0.0));
+        }*/ 
+        
         model.addAttribute("listaProdutos", listaProdutos);
-        model.addAttribute("carrinho", carrinho);
+        
+        //model.addAttribute("carrinho", carrinho);
+        
         return "produto/listagemProdutos";
     }
     
     @RequestMapping("/detalheProduto")
     public String detalheProduto(int id,Model model){
-        model.addAttribute("produto", produtoDao.pesquisarProduto(id));
-        ItemCompra item = new ItemCompra();
-        model.addAttribute("item", item);
+        
+        ItemCompra itemCompra = new ItemCompra();
+        
+        itemCompra.setProdutos(produtoDao.pesquisarProduto(id));
+        
+        model.addAttribute("itemCompra", itemCompra);
         
         return "produto/detalheProduto";
     }

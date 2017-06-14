@@ -32,7 +32,7 @@
                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
                         <ul class="nav navbar-nav">
                             <!--li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li-->
-                            <li><a href="<c:url value='/listagemProdutos'/>">Produtos</a></li>
+                            <li><a href="<c:url value='/listarProdutos'/>">Produtos</a></li>
                             <li><a href="#">Masculino</a></li>
                             <li><a href="#">Feminino</a></li>
                             <li class="dropdown">
