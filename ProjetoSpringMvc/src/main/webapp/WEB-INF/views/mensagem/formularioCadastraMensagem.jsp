@@ -7,19 +7,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Cadastro de Mensagem</title>
+        <title>Contato</title>
         <link href="<c:url value='/resources/css/bootstrap-personalizado.min.css'/>" rel="stylesheet">
     </head>
     <body>
         
         <div class="container">
+            <header>              
+                <div class="row">
+                    <c:import url="/topo"/>
+                </div>       
+            </header>            
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <form class="form-horizontal" action="<c:url value='/cadastrarMensagem'/>" method="post">
                         <fieldset>
-                            <legend>Formulário de Mensagem</legend>
+                            <legend>Contato - Deixe sua mensagem</legend>
                                 <div class="form-group">
-                                    <label for="descricao" class="col-lg-2 control-label">Descricao</label>
+                                    <label for="descricao" class="col-lg-2 control-label">Descrição</label>
                                     <div class="col-lg-10">
                                       <textarea class="form-control" rows="3" name="descricao"></textarea>
                                       <span class="help-block">Mensagem de informação</span>
@@ -29,9 +34,10 @@
                                     <label for="tipo" class="col-lg-2 control-label">Tipo</label>
                                     <div class="col-lg-10">
                                       <select class="form-control" name="tipo">
+                                          <option value="Selecione" disabled selected >Selecione</option>
                                         <option value="Elogio">Elogio</option>
                                         <option value="Sugestao">Sugestao</option>
-                                        <option value="Critica">Critica</option>
+                                        <option value="Critica">Crítica</option>
                                       </select>
                                     </div>
                                 </div>

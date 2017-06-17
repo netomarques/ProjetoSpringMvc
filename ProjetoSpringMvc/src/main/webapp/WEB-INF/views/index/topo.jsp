@@ -70,16 +70,14 @@
                             <!--<li><a href="<c:url value='/acessarConta'/>">Acessar a Conta</a></li>-->
                             <li><a href="<c:url value='/formCadastraCliente'/>">Acessar a Conta</a></li>
                             <li><a href="<c:url value="/visualizarCarrinho"/>">
-                                    Meu Carrinho
-                                    <c:forEach items="${carrinho.compra.itens}" var="item">                                       
-                                    </c:forEach>
+                                    Meu Carrinho                                    
                                     <c:if test="${carrinho.totalDeItens > 0 }">
                                         <span class="badge">${carrinho.totalDeItens }</span>
                                     </c:if>
                                 </a>
                             </li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Trabalhe Conosco</a></li>
+                            <li><a href="<c:url value='/formCadastraMensagem'/>">Contato</a></li>
+                            <li><a href="<c:url value='/formCadastraCurriculo'/>">Trabalhe Conosco</a></li>
                         </ul>
                     </div>
 

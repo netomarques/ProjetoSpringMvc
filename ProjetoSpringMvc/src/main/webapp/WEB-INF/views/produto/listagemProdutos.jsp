@@ -19,54 +19,56 @@
                 </div>
             </header>
             <section>   
-                
-                <div class="row">
-                    <c:import url="/verCarrinho"/>
-                </div>
-                
-                <c:forEach var="produto" items="${listaProdutos}">
-                <div class="row">
-                    <div class="col-md-12">
-                        <article>
-                            <div class="panel panel-info">
-                                <div class="panel-heading">${produto.nome}</div>
-                                <!-- Table -->
-                                <table class="table">
-                                    <tr>
-                                        <td rowspan="2">
-                                            <figure>
-                                                <a  href="<c:url value='/detalheProduto?id=${produto.id}'/>">
-                                                    <img alt="${produto.nome}" src="<c:url value='/resources/img/produtos/${produto.imagem}'/>" class="img-responsive">
-                                                </a>
-                                            </figure>
-                                        </td>
-                                        <td>
-                                            ${produto.descricao}                                        
-                                        </td>
-                                    </tr>
-                                    <tr>                                                                               
-                                        <td style="font-size: 48px; color: red">
-                                            R$ ${produto.preco}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </article>
+                <fieldset>
+                    <legend>Produtos</legend>
+                    <div class="row">
+                        <c:import url="/verCarrinho"/>
                     </div>
-                </div>
-                </c:forEach>
+
+                    <c:forEach var="produto" items="${listaProdutos}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <article>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">${produto.nome}</div>
+                                        <!-- Table -->
+                                        <table class="table">
+                                            <tr>
+                                                <td rowspan="2">
+                                                    <figure>
+                                                        <a  href="<c:url value='/detalheProduto?id=${produto.id}'/>">
+                                                            <img alt="${produto.nome}" src="<c:url value='/resources/img/produtos/${produto.imagem}'/>" class="img-responsive">
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                                <td>
+                                                    ${produto.descricao}                                        
+                                                </td>
+                                            </tr>
+                                            <tr>                                                                               
+                                                <td style="font-size: 48px; color: red">
+                                                    R$ ${produto.preco}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </fieldset>
             </section>
             <footer>
                 <div class="row">
                     <div class="container-fluid">
                         <div clas="col-md-12">
-                             <c:import url='/rodape'/>
+                            <c:import url='/rodape'/>
                         </div>
                     </div>
                 </div>
             </footer>        
         </div>
-                
+
         <script src="<c:url value='/resources/js/jquery.js'/>"></script> <!--esqueceu de novo-->
         <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script> <!--esqueceu de novo-->
     </body>
