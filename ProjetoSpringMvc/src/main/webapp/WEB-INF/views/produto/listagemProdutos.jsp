@@ -66,5 +66,8 @@
                 </div>
             </footer>        
         </div>
+                
+        <script src="<c:url value='/resources/js/jquery.js'/>"></script> <!--esqueceu de novo-->
+        <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script> <!--esqueceu de novo-->
     </body>
 </html>

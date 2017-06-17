@@ -28,7 +28,7 @@
 
     <body>
         <div class="container">
-            <header>
+            <header>              
                 <div class="row">
                     <c:import url="/topo"/>
                 </div>       
@@ -90,12 +90,12 @@
                 <div class="row">
                     <div class="container-fluid">
                         <div clas="col-md-12">
-                             <c:import url='/rodape'/>
+                            <c:import url='/rodape'/>
                         </div>
                     </div>
                 </div>
             </footer>                   
-                         
+
             <!--div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <a class="btn btn-info btn-lg btn-block active" role="button" href="<!c:url value='/formListaCliente'/>">Módulo Cliente</a><br>
@@ -111,6 +111,6 @@
         <script src="<c:url value='/resources/js/jquery.js'/>"></script>
         <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
     </body>
-    
-    
+
+
 </html>

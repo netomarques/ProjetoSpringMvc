@@ -5,15 +5,12 @@ import br.com.ifam.mvc.dao.ClienteDao;
 import br.com.ifam.mvc.dao.ProdutoDao;
 import br.com.ifam.mvc.model.Administrador;
 import br.com.ifam.mvc.model.Carrinho;
-import br.com.ifam.mvc.model.Cliente;
-import br.com.ifam.mvc.model.Compra;
 import br.com.ifam.mvc.model.ItemCompra;
 import br.com.ifam.mvc.model.Produto;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,7 +55,8 @@ public class ProdutoController {
         admin.setId(1);
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\produtos\\" + file.getOriginalFilename());
+//            Path path = Paths.get("C:\\Users\\Wilson\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\produtos\\" + file.getOriginalFilename());
+            Path path = Paths.get("C:\\Users\\Visitante\\Documents\\NetBeansProjects\\ProjetoSpringMvc\\ProjetoSpringMvc\\src\\main\\webapp\\resources\\img\\produtos\\" + file.getOriginalFilename());
             Files.write(path, bytes);
         } catch (IOException e) {
         }

@@ -60,7 +60,7 @@
                     </tfoot>
                 </table>
                         
-                <h3><a href="<c:url value="/finalizarCompra"/>">Finalizar Comppra</a></h3>        
+                <h3><a href="<c:url value="/finalizarCompra"/>">Finalizar Compra</a></h3>        
             </section>
             <footer>
                 <div class="row">
@@ -75,4 +75,6 @@
             </footer>              
         </div>    
     </body>
+    <script src="<c:url value='/resources/js/jquery.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/> "></script>
 </html>

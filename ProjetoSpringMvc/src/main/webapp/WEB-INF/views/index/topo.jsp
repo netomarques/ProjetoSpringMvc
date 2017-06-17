@@ -6,17 +6,18 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <!--Logo-->
         <div class="col-md-2">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <figure>
-                        <img alt="MyCosmetic" src="<c:url value='/resources/img/logoMaior.png'/>" class="img-responsive"/>
+                        <img alt="MyCosmetic" src="<c:url value='/resources/img/logoNovaSemFundo.png'/>" class="img-responsive"/>
                         <!--img alt="MyCosmetic" src="img/logoMaior.png" class="imgLogo"-->
                     </figure>    
                 </div>
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -31,10 +32,16 @@
 
                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
                         <ul class="nav navbar-nav">
-                            <!--li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li-->
-                            <li><a href="<c:url value='/listarProdutos'/>">Produtos</a></li>
-                            <li><a href="#">Masculino</a></li>
-                            <li><a href="#">Feminino</a></li>
+                            <!--li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li-->                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categorias<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<c:url value='/listarProdutos'/>">Todos os Produtos</a></li>
+                                    <li><a href="#">Masculino</a></li>
+                                    <li><a href="#">Feminino</a></li>
+                                    <li><a href="#">Infantil</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Formulários <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -54,15 +61,47 @@
                         </ul>
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar">
+                                <input type="text" class="form-control" placeholder="Pesquisar">
                             </div>
                             <button type="submit" class="btn btn-default">Ir</button>
                         </form>
+
                         <ul class="nav navbar-nav navbar-right">
+                            <!--<li><a href="<c:url value='/acessarConta'/>">Acessar a Conta</a></li>-->
+                            <li><a href="<c:url value='/formCadastraCliente'/>">Acessar a Conta</a></li>
+                            <li><a href="<c:url value="/visualizarCarrinho"/>">
+                                    Meu Carrinho
+                                    <c:forEach items="${carrinho.compra.itens}" var="item">                                       
+                                    </c:forEach>
+                                    <c:if test="${carrinho.totalDeItens > 0 }">
+                                        <span class="badge">${carrinho.totalDeItens }</span>
+                                    </c:if>
+                                </a>
+                            </li>
                             <li><a href="#">Contato</a></li>
                             <li><a href="#">Trabalhe Conosco</a></li>
                         </ul>
                     </div>
+
+                    <!--<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Entrar na minha conta</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                            </div>                                
+                            <button type="submit" class="btn btn-default">Entrar</button>
+                        </form>
+                        <ul class="nav navbar-nav">                            
+                            <li><a href="#">Criar Conta</a></li>
+                        </ul>
+                    </div>-->
                 </div>
             </nav>
         </div>
